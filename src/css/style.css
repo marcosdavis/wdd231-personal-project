@@ -271,19 +271,15 @@ a:visited,
 
 /* park nav styling */
 
-.park-nav {
-  padding-bottom: .5rem;
-}
-
-.park-nav ul {
+.park-nav > ul {
   display: flex;
   justify-content: center;
   background-color: var(--bs-black);
   list-style: none;
   font-size: 0.8rem;
-  height: 70px;
   margin: 0;
   padding-left: 0;
+  gap: 0.2rem;
 }
 
 .park-nav a {
