@@ -103,18 +103,18 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   background-color: var(--bs-body-bg);
-  overflow-x: hidden;
   margin: 0;
+  font-size: var(--bs-body-font-size);
 }
 
 a:link,
-a:visited,
-#park-header:link
-#park-header:visited {
-  color: white;
-  text-decoration: none;
+a:visited {
+  color: var(--bs-link-color);
 }
 
+a:hover {
+  color: var(--bs-link-hover-color);
+}
 
 /* Skip links styling */
 .skip-links ul {
@@ -174,6 +174,10 @@ a:visited,
   overflow: hidden;
 }
 
+.disclaimer {
+  padding: 0 1rem;
+}
+
 /* global-header styling */
 
 .global-header {
@@ -185,8 +189,8 @@ a:visited,
 
 .global-header a:link,
 .global-header a:visited,
-#park-header:link
-#park-header:visited {
+#park-header a:link,
+#park-header a:visited {
   color: white;
   text-decoration: none;
 }
