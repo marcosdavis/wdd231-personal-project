@@ -252,7 +252,7 @@ a:visited,
   grid-row: 5/6;
   display: flex;
   align-items: center;
-  padding: 1.5rem 10px;
+  padding: 0.65rem 10px;
 }
 
 .hero-ban-title {
