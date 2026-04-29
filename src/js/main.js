@@ -2,22 +2,7 @@ import { getParkData } from "./parkService.mjs";
 
 const parkData = getParkData();
 
-// Update the href and park name in the disclaimer
-const disclaimer = document.querySelector(".disclaimer > a");
-disclaimer.href = parkData.url;
-disclaimer.innerHTML = parkData.fullName;
-
-// Update the title 
-const parkTitle = document.querySelector("head > title");
-parkTitle.innerHTML = parkData.fullName;
-
-// Update the hero banner image
-const heroImg = document.querySelector(".hero-ban > img");
-heroImg.src = parkData.images[0].url;
-
-// Update the title and subtitle of the hero
-const heroBanTitles = document.querySelector(".hero-ban-title-container");
-heroBanTitles.innerHTML = parkInfoTemplate(parkData);
+setHeaderInfo(parkData);
 
 function parkInfoTemplate(info) {
     return `<a href="#" class="hero-ban-title">${info.name}</a>
@@ -27,38 +12,74 @@ function parkInfoTemplate(info) {
     </p>`;
 }
 
-// Update park name and description
-const parkName = document.querySelector("#main > h1");
-parkName.innerHTML = parkData.fullName;
+function setHeaderInfo(data) {
+    // insert data into disclaimer section
+    const disclaimer = document.querySelector(".disclaimer > a");
+    disclaimer.href = data.url;
+    disclaimer.innerHTML = data.fullName;
 
-const parkDescription = document.querySelector(".description");
-parkDescription.innerHTML = parkData.description;
+    // update the title of the site. Notice that we can select things in the head just like in the body with querySelector
+    document.querySelector("head > title").textContent = data.fullName;
 
-// Update the section images
-const conditionImg = document.querySelector(".conditions-container img");
-conditionImg.src = parkData.images[2].url;
+    // Set the banner image
+    document.querySelector(".hero-ban > img").src = data.images[0].url;
 
-const feesAndPassesImg = document.querySelector(".fees-and-passes-container img");
-feesAndPassesImg.src = parkData.images[3].url;
+    // Use the template function above to set the rest of the park specific info in the header
+    document.querySelector(".hero-ban-title-container").innerHTML = parkInfoTemplate(data);
+}
 
-const visitorImg = document.querySelector(".visitor-container img");
-visitorImg.src = parkData.images[9].url;
+mediaCardTemplate(parkInfoLinks);
 
-// Update footer information
-const parkAddress = document.querySelector(".contact-info-container")
-parkAddress.innerHTML = parkAddressTemplate(parkData);
+function mediaCardTemplate(info) {
+    return `<div>
+        <a href="${info.link}">
+            <img src="${info.image}">
+        </a>
+        <a href="${info.link}">
+            <h3>${info.name}<h3>
+        </a>
+        <p>${info.description}</p>
+    </div>`
+};
+
+const parkInfoLinks = [
+    {
+        name: "Current Conditions &#x203A;",
+        link: "conditions.html",
+        image: parkData.images[2].url,
+        description: 
+            "See what conditions to expect in the park before leaving on your trip!"
+    },
+    {
+        name: "Fees and Passes &#x203A;",
+        link: "fees.html",
+        image: parkData.images[3].url,
+        description:
+            "Learn about the fees and passes that are available."
+    },
+    {
+        name: "Visitor Centers &#x203A;",
+        link: "visitor_centers.html",
+        image: parkData.images[9].url,
+        description:
+            "Learn about the visitor centers in the park."
+    }
+];
+
+
+
+// // Update footer information
+// const parkAddress = document.querySelector(".contact-info-container")
+// parkAddress.innerHTML = parkAddressTemplate(parkData);
 
 function parkAddressTemplate(info) {
     return `<div>${info.addresses[1].line1}</div>
     <div>${info.addresses[1].city}, ${info.addresses[1].stateCode} ${info.addresses[1].postalCode}</div>`
 };
 
-const parkPhoneNumber = document.querySelector(".phone-container");
-parkPhoneNumber.innerHTML = parkPhoneNumberTemplate(parkData);
+// const parkPhoneNumber = document.querySelector(".phone-container");
+// parkPhoneNumber.innerHTML = parkPhoneNumberTemplate(parkData);
 
 function parkPhoneNumberTemplate(info) {
     return `<div>${info.contacts.phoneNumbers[0].phoneNumber}</div>`
 };
-
-
-console.log(parkData);
