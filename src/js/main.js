@@ -26,3 +26,39 @@ function parkInfoTemplate(info) {
         <span>${info.states}</span>
     </p>`;
 }
+
+// Update park name and description
+const parkName = document.querySelector("#main > h1");
+parkName.innerHTML = parkData.fullName;
+
+const parkDescription = document.querySelector(".description");
+parkDescription.innerHTML = parkData.description;
+
+// Update the section images
+const conditionImg = document.querySelector(".conditions-container img");
+conditionImg.src = parkData.images[2].url;
+
+const feesAndPassesImg = document.querySelector(".fees-and-passes-container img");
+feesAndPassesImg.src = parkData.images[3].url;
+
+const visitorImg = document.querySelector(".visitor-container img");
+visitorImg.src = parkData.images[9].url;
+
+// Update footer information
+const parkAddress = document.querySelector(".contact-info-container")
+parkAddress.innerHTML = parkAddressTemplate(parkData);
+
+function parkAddressTemplate(info) {
+    return `<div>${info.addresses[1].line1}</div>
+    <div>${info.addresses[1].city}, ${info.addresses[1].stateCode} ${info.addresses[1].postalCode}</div>`
+};
+
+const parkPhoneNumber = document.querySelector(".phone-container");
+parkPhoneNumber.innerHTML = parkPhoneNumberTemplate(parkData);
+
+function parkPhoneNumberTemplate(info) {
+    return `<div>${info.contacts.phoneNumbers[0].phoneNumber}</div>`
+};
+
+
+console.log(parkData);
