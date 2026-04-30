@@ -311,8 +311,10 @@ a:hover {
   padding: 10px 16px;
 }
 
-.intro h1 {
+.intro > h1 {
   font-family: var(--bs-font-serif);
+  font-size: 2em;
+  font-weight: normal;
 }
 
 .info {
