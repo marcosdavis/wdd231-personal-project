@@ -1,0 +1,148 @@
+/* global-header styling */
+
+.global-header {
+  background-color: var(--bs-black);
+  display: flex;
+  justify-content: space-between;
+  fill: white;
+}
+
+.global-header a:link,
+.global-header a:visited,
+#park-header a:link,
+#park-header a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.icon {
+  height: 17px;
+  width: 17px;
+}
+
+.global-nav {
+  position:absolute;
+  z-index: -1;
+}
+
+.global-header__right {
+  display: flex;
+  align-items: center;
+}
+
+.global-header__right .search-icon {
+  padding: 0 1.25em 0 1.25em;
+  margin-top: 6px;
+}
+
+#global-nav-toggle {
+  background-color: transparent;
+  border: none;
+  color: var(--bs-body-bg);
+  display: flex;
+  align-items: center;
+  border-left: 1px solid var(--bs-grey-5);
+  text-transform: uppercase;
+  font-size: 17px;
+  padding: 1.20em;
+}
+
+#global-nav-toggle:hover {
+  cursor: pointer;
+}
+
+/* Title and logo styling */
+
+.site-title {
+  display: flex;
+  align-items: center;
+
+}
+.site-title > span {
+  font-size: 1rem;
+  margin-left: 0.3em;
+}
+
+.logo {
+  height: 0;
+  width: 0;
+  margin: 0.5em;
+  display: inline-block;
+  border-top: 34px solid var(--bs-light-green);
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+}
+
+/* Hero banner styling */
+
+.hero-ban {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  background-color: var(--bs-body-bg);
+  min-height: 300px;
+}
+
+.hero-ban img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  grid-column: 1/2;
+  grid-row: 1/6;
+}
+
+.hero-ban-title-container {
+  background-color: var(--bs-border-color-translucent);
+  color: var(--bs-white);
+  grid-column: 1/2;
+  grid-row: 5/6;
+  display: flex;
+  align-items: center;
+  padding: 0.65rem 10px;
+}
+
+.hero-ban-title {
+  font-size: 1.875rem;
+  margin-right: 1.25rem;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.hero-ban-subtitles {
+  display: flex;
+  flex-direction: column;
+  line-height: 1rem;
+  font-size: .8125rem;
+}
+
+/* park nav styling */
+
+.park-nav > ul {
+  display: flex;
+  justify-content: center;
+  background-color: var(--bs-black);
+  list-style: none;
+  font-size: 0.8rem;
+  margin: 0;
+  padding-left: 0;
+  gap: 0.2rem;
+}
+
+.park-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8em 2em;
+  min-width: 106px;
+  font-weight: bold;
+}
+
+.park-nav a:hover {
+  background-color: var(--bs-gray-900);
+}
+
+.park-nav svg {
+  width: 24px;
+  height: 24px;
+}

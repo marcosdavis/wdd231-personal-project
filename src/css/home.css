@@ -1,0 +1,42 @@
+/* main styling */
+
+.intro {
+  padding: 10px 16px;
+}
+
+.intro > h1 {
+  font-family: var(--bs-font-serif);
+  font-size: 2em;
+  font-weight: normal;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.info-container {
+  padding: 0 1rem;
+  max-width: 400px;
+}
+
+.info-container a {
+  text-decoration: none;
+  color: var(--bs-black);
+}
+
+.info-container a:hover {
+  color: var(--bs-body-color);
+}
+
+.info-container a img{
+  max-height: 15rem;
+  width: 100%;
+}
+
+.info-container a > h3, .info-container p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}

@@ -1,3 +1,37 @@
+const baseURL = "https://developer.nps.gov/api/v1/";
+const apiKey = import.meta.env.VITE_NPS_API_KEY;
+
+async function getJson(url) {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-Api-Key": apiKey
+    }
+  };
+  let data = {};
+  const reponse = await fetch(baseURL + url, options);
+  // check to make sure the reponse was ok.
+  if (reponse.ok) {
+    // convert to JSON
+    data = await reponse.json();
+  } else throw new Error("reponse not ok")
+  return data;
+}
+ 
+export async function getParkData() {
+  const parkData = await getJson("parks?parkCode=glac");
+  return parkData.data[0];
+}
+
+export function getInfoLinks(data) {
+  const updatedImages = parkInfoLinks.map((item, index) => {
+    item.image = data[index + 2].url;
+    return item;
+  });
+  return updatedImages;
+}
+  
+
 const park = {
   id: "F58C6D24-8D10-4573-9826-65D42B8B83AD",
   url: "https://www.nps.gov/yell/index.htm",
@@ -179,11 +213,7 @@ const park = {
   designation: "National Park"
 };
 
-export function getParkData() {
-  return park;
-}
-
-export const parkInfoLinks = [
+const parkInfoLinks = [
     {
         name: "Current Conditions &#x203A;",
         link: "conditions.html",
