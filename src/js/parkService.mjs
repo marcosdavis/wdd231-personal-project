@@ -17,11 +17,6 @@ async function getJson(url) {
   } else throw new Error("reponse not ok")
   return data;
 }
- 
-export async function getParkData() {
-  const parkData = await getJson("parks?parkCode=glac");
-  return parkData.data[0];
-}
 
 export function getInfoLinks(data) {
   const updatedImages = parkInfoLinks.map((item, index) => {
@@ -29,6 +24,16 @@ export function getInfoLinks(data) {
     return item;
   });
   return updatedImages;
+}
+
+export async function getParkData() {
+  const parkData = await getJson("parks?parkCode=cany");
+  return parkData.data[0];
+}
+
+export async function getAlertData() {
+  const alertData = await getJson("alerts?parkCode=cany");
+  return alertData.data;
 }
   
 
