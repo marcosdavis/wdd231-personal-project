@@ -1,6 +1,8 @@
 import { getParkData, getInfoLinks, getAlertData , getVisitorCenterData } from "./parkService.mjs";
 import { alertCardTemplate , visitorCenterTemplate , activitiesTemplate } from "./templates.mjs";
 import setHeaderFooter from "./setHeaderFooter.mjs";
+import '../css/style.css';
+import '../css/conditions.css'
 
 function setAlerts(data) {
     const alertList = document.querySelector(".alerts > ul");

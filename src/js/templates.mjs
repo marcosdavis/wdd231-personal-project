@@ -1,3 +1,5 @@
+import spritePath from '../images/sprite.symbol.svg';
+
 export function parkInfoTemplate(info) {
     return `<a href="#" class="hero-ban-title">${info.name}</a>
     <p class="hero-ban-subtitles"> 
@@ -17,24 +19,22 @@ export function mediaCardTemplate(info) {
 }
 
 export function alertCardTemplate(alert) {
-    let alertType = '';
-
-    switch (alert.category) {
-        case 'Park Closure':
-            alertType = 'closure';
-            break;
-        default:
-            alertType = alert.category.toLowerCase();
-    }
-    return `<li class='alert'>
-    <svg class='icon' focusable='false' aria-hidden='true'>
-        <use xlink:href="/images/sprite.symbol.svg#alert-${alertType}"></use>
-    </svg>
-    <div>
-        <h3 class='alert-${alertType}'>${alert.title}</h3>
-        <p>${alert.description}</p>
-    </div>
-    </li>`;
+  let alertType = "";
+  switch (alert.category) {
+    case "Park Closure":
+      alertType = "closure";
+      break;
+    default:
+      alertType = alert.category.toLowerCase();
+  }
+  return `<li class="alert">
+  <svg class="icon" focusable="false" aria-hidden="true">
+    <use xlink:href="${spritePath}#alert-${alertType}"></use>  
+  </svg>
+  <div>
+    <h3 class="alert-${alertType}">${alert.title}</h3>
+    <p>${alert.description}</p>
+  </div></li>`;
 }
 
 export function visitorCenterTemplate(info) {
