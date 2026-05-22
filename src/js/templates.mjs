@@ -37,6 +37,20 @@ export function alertCardTemplate(alert) {
     </li>`;
 }
 
+export function visitorCenterTemplate(info) {
+    return `<li class='visitor-center'>
+        <h3>${info.name}</h3>
+        <p>${info.description}</p>
+        <p>${info.directionsInfo}</p>
+    </li>`;
+}
+
+export function activitiesTemplate(activites) {
+    return `<li class='activity-name'>
+        <div>${activites.name}</div>
+    </li>`;
+}
+
 function getMailingAddress(addresses) {
     const mailing = addresses.find((addresses) => addresses.type === "Mailing");
     return mailing;
