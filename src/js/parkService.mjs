@@ -14,7 +14,7 @@ async function getJson(url) {
   if (reponse.ok) {
     // convert to JSON
     data = await reponse.json();
-  } else throw new Error("reponse not ok")
+  } else throw new Error("reponse not ok");
   return data;
 }
 
