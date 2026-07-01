@@ -27,19 +27,24 @@ export function getInfoLinks(data) {
 }
 
 export async function getParkData() {
-  const parkData = await getJson("parks?parkCode=cany");
+  const parkData = await getJson("parks?parkCode=yell");
   return parkData.data[0];
 }
 
 export async function getAlertData() {
-  const alertData = await getJson("alerts?parkCode=cany");
+  const alertData = await getJson("alerts?parkCode=yell");
   return alertData.data;
 }
 
 export async function getVisitorCenterData(parkCode) {
   const visitorCenterData = await getJson(`visitorcenters?parkCode=${parkCode}`);
   return visitorCenterData.data;
-} 
+}
+
+export async function getParkVisitorCenterDetails(id) {
+  const visitorCenterData = await getJson(`visitorcenters?id=${id}`);
+  return visitorCenterData.data[0];
+}
 
 const park = {
   id: "F58C6D24-8D10-4573-9826-65D42B8B83AD",

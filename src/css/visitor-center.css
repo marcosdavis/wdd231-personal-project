@@ -1,0 +1,120 @@
+/* Visitor Center info/name */
+
+.vc-name {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px;
+  border-bottom: 1px solid var(--bs-gray-500);
+  font-size: 25px;
+}
+
+.vc-name svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.vc-info {
+  padding: 15px;
+}
+
+.vc-info figure {
+  margin: 1em 3em;
+}
+
+.vc-info figcaption {
+  font-size: 0.8em;
+}
+
+.vc-info figcaption > span {
+  display: block;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.vc-details-list svg,
+.vc-gallery svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 1rem;
+  fill: black;
+}
+
+.vc-details-list summary {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  margin: 15px;
+}
+
+.vc-details-list section {
+  margin: 20px;
+}
+
+.vc-details-list ul {
+  list-style: none;
+}
+
+#vcAddresses,
+#vcDirections,
+#vcAmenities,
+#vcContact {
+  border: 1px solid var(--bs-gray-500);
+  padding: 5px;
+}
+
+#vcAddresses svg,
+#vcDirections svg,
+#vcAmenities svg,
+#vcContact svg {
+  width: 24px;
+  height: 24px;
+}
+
+.vc-gallery {
+  font-size: 25px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.vc-gallery > h2 {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
+
+.vc-gallery ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.vc-gallery img {
+  width: 265px;
+  height: 265px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.vc-details-list summary::marker,
+.vc-details-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.vc-details-list summary::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-image: url("../images/arrow.svg");
+  background-size: 1.25rem 1.25rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.vc-details-list details[open] > summary::after {
+  transform: rotate(180deg);
+}

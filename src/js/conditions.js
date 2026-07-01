@@ -28,7 +28,7 @@ function setActivities(data) {
 async function init() {
     const parkData = await getParkData();
     const alertData = await getAlertData();
-    const visitorCenterData = await getVisitorCenterData("cany");
+    const visitorCenterData = await getVisitorCenterData("yell");
 
     setAlerts(alertData);
     setHeaderFooter(parkData);
